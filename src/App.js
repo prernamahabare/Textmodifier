@@ -11,8 +11,10 @@ import {
 } from "react-router-dom";
 
 function App() {
+  //to set mode defalut mode is light
   const [mode, setmode] = useState('light');
 
+  //to set alert after clicking any button
   const [alert, setalert] = useState(null);
   const showalert = (message, type) => {
     setalert({
@@ -24,21 +26,22 @@ function App() {
     }, 2000);
   }
 
-
+  //to change mode to dark or light
   const togglemode = () => {
     if (mode === 'light') {
       setmode('dark');
       document.body.style.backgroundColor = "#39373c";
       showalert("The Dark Mode Enable", "success");
-      document.title = "TextModifier - Dark Mode"
+      //document.title = "TextModifier - Dark Mode"
     }
     else {
       setmode('light')
       document.body.style.backgroundColor = "white";
       showalert("The Light Mode Enable", "success");
-      document.title = "TextModifier - Light Mode"
+      //document.title = "TextModifier - Light Mode"
     }
   }
+
   return (
      <>
        <Router>
@@ -47,26 +50,19 @@ function App() {
         {/* Here props are automatic generated becaues we give function of defualtprops in navbar.js */}
         {/* <Navbar /> */}
 
+        {/* to view alert in application  */}
         <Alert alert={alert} />
-
-
-        {/* <div className="container" mode={mode}>
-          <Textform showalert={showalert} heading="Enter your text" mode={mode} />
-        </div> */}
-
-        {/* <div className="container">
-        <About/>
-      </div> */}
-
+        
+        {/* to use functionality of router in application */}
         <Switch>
           <Route path="/about">
             <div className="container">
-              <About  mode={mode}/>
+              <About  mode={mode} className="Active"/>
             </div>
           </Route>
           <Route path="/">
             <div className="container" mode={mode}>
-              <Textform showalert={showalert} heading="Enter your text" mode={mode} />
+              <Textform showalert={showalert} heading="Enter your text" mode={mode} className="Active" />
             </div>
           </Route>
         </Switch>

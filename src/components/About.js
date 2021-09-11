@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function About(props) {
-    const [btntext, setbtntext] = useState("Enable Dark Mode");
+
     const mystyle = {
         color : props.mode === 'dark'? 'white':'#302f2f',
         backgroundColor : props.mode === 'dark'? '#302f2f':'white',
-        // border :'1px solid',
-        // borderColor : props.mode === 'dark'? 'white':'#111010',
-
     }
 
     return (
